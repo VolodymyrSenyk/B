@@ -1,31 +1,23 @@
 package com.example.volodymyr.faiflytest;
 
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
-import android.view.View.OnFocusChangeListener;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView result;
-    private TextView sentences;
-    private EditText input;
-    private Button split;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sentences = (TextView) findViewById(R.id.textView);
-        result = (TextView) findViewById(R.id.textView2);
-        input = (EditText) findViewById(R.id.editText);
-        split = (Button) findViewById(R.id.button);
+        final TextView sentences = findViewById(R.id.result_field);
+        final EditText input = findViewById(R.id.input_field);
+        final Button split = findViewById(R.id.split_button);
 
         String sentence = input.getText().toString();
         Dividing Test = new Dividing();
@@ -47,14 +39,5 @@ public class MainActivity extends AppCompatActivity {
         };
 
         split.setOnClickListener(click);
-/*
-        input.setOnFocusChangeListener(new OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    input.setText("");
-                }
-            }
-        });*/
     }
 }
